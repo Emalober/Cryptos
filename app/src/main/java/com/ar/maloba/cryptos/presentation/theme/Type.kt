@@ -1,4 +1,4 @@
-package com.ar.maloba.cryptos.ui.theme
+package com.ar.maloba.cryptos.presentation.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle
