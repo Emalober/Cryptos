@@ -28,7 +28,9 @@ fun CoinDetailScreen(
 ) {
     val state = viewModel.state.value
     Box(
-        modifier = Modifier.fillMaxSize()
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(8.dp)
     ) {
         state.detail?.let { coin ->
             LazyColumn(modifier = Modifier.fillMaxSize()) {
@@ -62,6 +64,7 @@ fun CoinDetailScreen(
                         mainAxisSpacing = 10.dp,
                         crossAxisSpacing = 10.dp,
                         modifier = Modifier.fillMaxWidth()
+                            .padding(top = 6.dp)
                     ) {
                        coin.tags.forEach { tag ->
                            CoinTag(tag = tag)
