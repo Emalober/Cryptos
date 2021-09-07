@@ -1,6 +1,7 @@
 package com.ar.maloba.cryptos.domain.use_case.get_coins
 
 import com.ar.maloba.cryptos.domain.entities.Coin
+import com.ar.maloba.cryptos.domain.entities.CoinDetail
 import com.ar.maloba.cryptos.domain.repository.CoinRepository
 import com.ar.maloba.cryptos.utils.Resource
 import kotlinx.coroutines.flow.Flow
@@ -14,13 +15,13 @@ class GetCoinsUseCase @Inject constructor(
 ) {
     operator fun invoke(): Flow<Resource<List<Coin>>> = flow {
         try {
-            emit(Resource.Loading())
+            emit(Resource.Loading<List<Coin>>())
             val coins = repository.getCoins()
-            emit(Resource.Success(coins))
+            emit(Resource.Success<List<Coin>>(coins))
         } catch (e: HttpException) {
-            emit(Resource.Error(e.localizedMessage ?: "An unexpected error ocurred!"))
+            emit(Resource.Error<List<Coin>>(e.localizedMessage ?: "An unexpected error ocurred!"))
         } catch (e: IOException) {
-            emit(Resource.Error("Couldn't reach server. Check your internet connection!"))
+            emit(Resource.Error<List<Coin>>("Couldn't reach server. Check your internet connection!"))
         }
     }
 }

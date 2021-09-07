@@ -9,10 +9,12 @@ import com.ar.maloba.cryptos.domain.use_case.get_coin.GetCoinUseCase
 import com.ar.maloba.cryptos.domain.use_case.get_coins.GetCoinsUseCase
 import com.ar.maloba.cryptos.utils.Constants.PARAM_COIN_ID
 import com.ar.maloba.cryptos.utils.Resource
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
+@HiltViewModel
 class CoinDetailViewModel @Inject constructor(
     private val getCoinUseCase: GetCoinUseCase,
     private val savedStateHandle: SavedStateHandle
